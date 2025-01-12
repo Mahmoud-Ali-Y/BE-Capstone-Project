@@ -1,0 +1,13 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "Inventory_App/base.html" %}
+
+{% block title %} Logout {% endblock title %}
+
+{% block content %}
+  <h1 class="text-center">Are you sure you want to logout ? </h1>
+  <form  method="post" class="text-center" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+  </form>    
+{% endblock content %}

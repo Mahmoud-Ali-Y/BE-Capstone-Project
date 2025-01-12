@@ -1,5 +1,5 @@
 """
-URL configuration for Task_Management_API project.
+URL configuration for Inventory_API project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,8 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from Inventory_App import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('Inventory_App.urls')),
+    path('Inventory_App/login/', views.login_view, name='login'),
+    path('Inventory_App/logout/', views.logout_view, name='logout'),
+    path('Inventory_App/register/', views.register_view, name='register'),
 ]

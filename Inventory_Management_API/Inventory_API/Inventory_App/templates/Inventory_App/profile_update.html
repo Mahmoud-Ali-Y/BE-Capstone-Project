@@ -1,0 +1,13 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "Inventory_App/base.html" %}
+
+{% block title %} Profile Form {% endblock %}
+
+{% block content %}
+<h1 class="text-center">Update Form</h1>
+<form method="POST" class="jumbotron">
+    {% csrf_token %}
+    {{form}}
+    <button class="btn btn-success btn-block" type="submit">Update</button>
+</form>
+{% endblock %}

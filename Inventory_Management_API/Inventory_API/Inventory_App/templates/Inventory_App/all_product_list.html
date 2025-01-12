@@ -1,0 +1,46 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "Inventory_App/base.html" %}
+
+{% block title %} Product List {% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Products</h1>
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Date Added</th>
+                <th>Last Updated</th>
+                <th>Added By</th>
+                <th>Updated By</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in product_list %}
+            <tr>
+                <td>{{ product.product_id }} </td>
+                <td>{{ product.name }} </td>
+                <td>{{ product.description }} </td>
+                <td>{{ product.quantity }} </td>
+                <td>{{ product.price }} </td>
+                <td>{{ product.category }} </td>
+                <td>{{ product.date_added }} </td>
+                <td>{{ product.last_updated }} </td>
+                <td>{{ product.added_by }} </td>
+                <td>{{ product.updated_by }} </td>
+                <td> 
+                    <a href="{% url 'product_update' product.product_id %}" class="btn btn-warning" >Update</a>
+                    <a href="{% url 'product_delete' product.product_id %}" class="btn btn-danger" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'product_serialize_list' %}" class="btn btn-info" >Serialized Product List</a>
+{% endblock %}

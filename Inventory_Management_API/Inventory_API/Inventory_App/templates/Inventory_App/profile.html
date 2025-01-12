@@ -1,0 +1,27 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "Inventory_App/base.html" %}
+
+{% block title %} Product List {% endblock %}
+
+{% block content %}
+    <h1 class="text-center">{{ user.username }} Profie</h1>
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+            <tr>
+                <th>User Name</th>
+                <td>{{ user.username }} </td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }} </td>
+            </tr>
+            <tr>
+                <th>Actions</th>
+                <td> 
+                    <a href="{% url 'user_update' user.username %}" class="btn btn-warning" >Update</a>
+                    <a href="{% url 'profile_delete' user.username %}" class="btn btn-danger" >Delete</a>
+                </td>
+            </tr>
+        </thead>
+    </table>
+{% endblock %}
